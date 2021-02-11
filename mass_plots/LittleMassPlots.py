@@ -57,6 +57,36 @@ if __name__ == '__main__':
 
 
 
+     leg1 = ROOT.TLegend(0.70,0.25,0.75,0.5)
+     leg1.AddEntry(BsKstmm_mass_hist ," B_{s} #rightarrow K*#mu^{+}#mu^{-}","p")
+     leg1.AddEntry(BdKstmm_mass_hist ," B^{0} #rightarrow K*#mu^{+}#mu^{-}","p")
+     leg1.SetTextSize(0.04)
+     leg1.SetTextColor(1)
+
+
+
+     leg2 = ROOT.TLegend(0.20,0.25,0.75,0.5)
+     leg2.AddEntry(BsKstee_mass_hist ," B_{s} #rightarrow K* e^{+}e^{-}","p")
+     leg2.AddEntry(BdKstee_mass_hist ," B^{0} #rightarrow K* e^{+}e^{-}","p")
+     leg2.SetTextSize(0.04)
+     leg2.SetTextColor(1)
+
+
+     leg3 = ROOT.TLegend(0.70,0.25,0.75,0.5)
+     leg3.AddEntry(BdRhomm_mass_hist ," B^{0} #rightarrow #rho #mu^{+}#mu^{-}","p")
+     leg3.AddEntry(BdKstmm_mass_hist, " B^{0} #rightarrow K* #mu^{+}#mu^{-}","p")
+     leg3.SetTextSize(0.04)
+     leg3.SetTextColor(1)
+
+
+
+     leg4 = ROOT.TLegend(0.20,0.25,0.75,0.5)
+     leg4.AddEntry(BdRhoee_mass_hist ," B^{0} #rightarrow #rho e^{+}e^{-}","p")
+     leg4.AddEntry(BdKstee_mass_hist, " B^{0} #rightarrow K* e^{+}e^{-}","p")
+     leg4.SetTextSize(0.04)
+     leg4.SetTextColor(1)
+
+
      #Hallo little plots
      #K* family with muons
      cMuons =  ROOT.TCanvas ("cMuons","cMuons",750,750)
@@ -70,6 +100,7 @@ if __name__ == '__main__':
      tBsToKstmm.Draw("B_M*1000>>BsKstmm_mass_hist", "","SAME")
      BdKstmm_mass_hist.Scale(1./BdKstmm_mass_hist.Integral())
      BsKstmm_mass_hist.Scale(1./BsKstmm_mass_hist.Integral())
+     leg1.Draw("SAME")
      cMuons.SaveAs("plots/Kstmm.png")
      #K* family with electrons
      cElectrons =  ROOT.TCanvas ("cElectrons","cElectrons",750,750)
@@ -83,6 +114,7 @@ if __name__ == '__main__':
      tBsToKstee.Draw("B_M*1000>>BsKstee_mass_hist","","SAME")
      BdKstee_mass_hist.Scale(1./BdKstee_mass_hist.Integral())
      BsKstee_mass_hist.Scale(1./BsKstee_mass_hist.Integral())
+     leg2.Draw("SAME")
      cElectrons.SaveAs("plots/Kstee.png")
 
 
@@ -96,10 +128,12 @@ if __name__ == '__main__':
      BdRhomm_mass_hist.GetXaxis().SetTitle("m(#pi^{-}#pi^{+}#mu^{+}#mu^{-})[MeV/c^{2}]")
      BdRhomm_mass_hist.SetMarkerColor(17)
      BdKstmm_mass_hist.SetMarkerColor(46)
-     tBdToKstmm.Draw("B_M_K2pim*1000>>BdKstmm_mass_hist","","")
-     tBdToRhomm.Draw("B_M*1000>>BdRhomm_mass_hist", "","SAME")
+     tBdToRhomm.Draw("B_M*1000>>BdRhomm_mass_hist", "","")
+     tBdToKstmm.Draw("B_M_K2pim*1000>>BdKstmm_mass_hist","","SAME")
+
      BdKstmm_mass_hist.Scale(1./BdKstmm_mass_hist.Integral())
      BdRhomm_mass_hist.Scale(1./BdRhomm_mass_hist.Integral())
+     leg3.Draw("SAME")
      cMuonsRho.SaveAs("plots/Rhomm.png")
      #rho family with electrons
      cElectronsRho =  ROOT.TCanvas ("cElectronsRho","cElectronsRho",750,750)
@@ -109,9 +143,10 @@ if __name__ == '__main__':
      BdRhoee_mass_hist.GetXaxis().SetTitle("m(#pi^{-}#pi^{+}e^{+}e^{-})[MeV/c^{2}]")
      BdRhoee_mass_hist.SetMarkerColor(17)
      BdKstee_mass_hist.SetMarkerColor(46)
-     tBdToKstee.Draw("B_M_K2pim*1000>>BdKstee_mass_hist","","")
-     tBdToRhoee.Draw("B_M*1000>>BdRhoee_mass_hist", "","SAME")
+     tBdToRhoee.Draw("B_M*1000>>BdRhoee_mass_hist", "","")
+     tBdToKstee.Draw("B_M_K2pim*1000>>BdKstee_mass_hist","","SAME")
+
      BdKstee_mass_hist.Scale(1./BdKstee_mass_hist.Integral())
      BdRhoee_mass_hist.Scale(1./BdRhoee_mass_hist.Integral())
-
+     leg4.Draw("SAME")
      cElectronsRho.SaveAs("plots/Rhoee.png")
