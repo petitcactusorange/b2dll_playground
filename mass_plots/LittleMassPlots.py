@@ -68,8 +68,8 @@ if __name__ == '__main__':
      BsKstmm_mass_hist.SetMarkerColor(9)
      tBdToKstmm.Draw("B_M*1000>>BdKstmm_mass_hist","","")
      tBsToKstmm.Draw("B_M*1000>>BsKstmm_mass_hist", "","SAME")
-     BdKstmm_mass_hist.Scale(4157*1./BdKstmm_mass_hist.Integral())
-     BsKstmm_mass_hist.Scale(38*1./BsKstmm_mass_hist.Integral())
+     BdKstmm_mass_hist.Scale(1./BdKstmm_mass_hist.Integral())
+     BsKstmm_mass_hist.Scale(1./BsKstmm_mass_hist.Integral())
      cMuons.SaveAs("plots/Kstmm.png")
      #K* family with electrons
      cElectrons =  ROOT.TCanvas ("cElectrons","cElectrons",750,750)
@@ -81,8 +81,8 @@ if __name__ == '__main__':
      BsKstee_mass_hist.SetMarkerColor(9)
      tBdToKstee.Draw("B_M*1000>>BdKstee_mass_hist", "","")
      tBsToKstee.Draw("B_M*1000>>BsKstee_mass_hist","","SAME")
-     BdKstee_mass_hist.Scale(4157*1./BdKstee_mass_hist.Integral())
-     BsKstee_mass_hist.Scale(38*1./BsKstee_mass_hist.Integral())
+     BdKstee_mass_hist.Scale(1./BdKstee_mass_hist.Integral())
+     BsKstee_mass_hist.Scale(1./BsKstee_mass_hist.Integral())
      cElectrons.SaveAs("plots/Kstee.png")
 
 
