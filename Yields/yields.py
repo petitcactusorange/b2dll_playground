@@ -1,13 +1,18 @@
-
-
-
+#--------------------
+#input PDG
+#--------------------
+BR_Bd2Kstmm =1.7e-7
+KstarToKpi = 2./3.
+VtdOverVtsSquared = 1./25
 #--------------------
 #input LHCb
 #--------------------
-N_BdKstmm_3fb = 1200 #LHCb
-VtdOverVtsSquared = 1./25
+N_BdKstmm_3fb = 1200
 fsOverfdLHCb= 0.259
-BR_Bd2Kstmm =1.7e-7
+#Scale To Lumi 50 fb-1 / 300 fb-1
+
+Scale_50fb = 15.6 #Scale To Lumi 50 fb-1
+Scale_300fb = 95. #Scale To Lumi 300 fb-1
 #----------------
 #input for FCC
 #----------------
@@ -16,12 +21,8 @@ ZTobb=0.1512
 fdFCC = 0.408
 fsOverfdFCC = 0.249
 fsFCC = fsOverfdFCC* fdFCC
-#----------------#----------------
-#Scale To Lumi 50 fb-1 / 300 fb-1
-#----------------#----------------
-Scale_50fb = 15.6
-Scale_300fb = 95.
 
+#We all love multiplications
 N_BsKstmm_3fb = VtdOverVtsSquared  * N_BdKstmm_3fb * fsOverfdLHCb
 N_BdRhomm_3fb = VtdOverVtsSquared  * N_BdKstmm_3fb * (3./2.)
 
@@ -37,11 +38,9 @@ N_BdRhomm_300fb = Scale_300fb * N_BdRhomm_3fb
 
 
 
-N_BdKstmmFCCee =  NumberOfZ * 2 * ZTobb * fdFCC * BR_Bd2Kstmm *  (2./3.)
-
+N_BdKstmmFCCee =  NumberOfZ * 2 * ZTobb * fdFCC * BR_Bd2Kstmm *  KstarToKpi
 N_BsKstmmFCCee =  N_BdKstmmFCCee * fsOverfdFCC * VtdOverVtsSquared
-
-N_BdRhommFCCee =  N_BdKstmmFCCee * VtdOverVtsSquared  * (3./2.)
+N_BdRhommFCCee =  N_BdKstmmFCCee * VtdOverVtsSquared  * (1./KstarToKpi.)
 
 print ("---------------------------")
 print ("Yields @ LHCb  50 fb-1")
