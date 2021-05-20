@@ -1,0 +1,10 @@
+nsamples        : 100
+statMult        : 1
+singleToy       : False
+generate        : #from flav.io
+    bCoeff      : 0.2
+    cCoeff      : 0.
+
+fitranges   :   # [initial, min,    max ] for the fit
+    bCoeff         : [0.0,    -1.,    1.  ]
+    cCoeff         : [0.0,     -1.,    1.  ]
