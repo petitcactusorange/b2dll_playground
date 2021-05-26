@@ -7,7 +7,7 @@ Decay B0
 Enddecay
 CDecay anti-B0
 #
-Decay MyK*0
+Decay MyRho0
   1.000        pi+        pi-                    VSS;
 Enddecay
 CDecay Myanti-Rho0
