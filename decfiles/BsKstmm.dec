@@ -1,12 +1,11 @@
-Alias      B0sig       B0
 Alias      MyK*0       K*0
 Alias      Myanti-K*0  anti-K*0
 ChargeConj Myanti-K*0  MyK*0
 #
-Decay B0sig
+Decay Bs0
   1.000        MyK*0     mu+     mu-               BTOSLLBALL;
 Enddecay
-CDecay anti-B0sig
+CDecay anti-Bs0
 #
 Decay MyK*0
   1.000        K+        pi-                    VSS;
